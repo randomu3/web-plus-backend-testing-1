@@ -11,7 +11,7 @@ describe('PostsService', () => {
 
   beforeEach(async () => {
     postsService = new PostsService();
-    
+
     postsService.create({ text: 'Some pre-existing post' });
   });
 
@@ -31,5 +31,11 @@ describe('PostsService', () => {
     const foundPost = postsService.find(createdPost.id);
 
     expect(foundPost).toEqual(createdPost);
+  });
+
+  it('should return undefined when trying to find a post with a non-existing id', () => {
+    const nonExistingId = '9999';
+    const foundPost = postsService.find(nonExistingId);
+    expect(foundPost).toBeUndefined();
   });
 });
