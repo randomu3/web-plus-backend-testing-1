@@ -11,6 +11,8 @@ describe('PostsService', () => {
 
   beforeEach(async () => {
     postsService = new PostsService();
+    
+    postsService.create({ text: 'Some pre-existing post' });
   });
 
   it('should add a new post', () => {
