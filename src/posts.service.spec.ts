@@ -28,14 +28,14 @@ describe('PostsService', () => {
 
   it('should find a post', () => {
     const createdPost = postsService.create(post);
-    const foundPost = postsService.find(createdPost.id);
+    let foundPost;
+    foundPost = postsService.find(createdPost.id);
 
     expect(foundPost).toEqual(createdPost);
-  });
 
-  it('should return undefined when trying to find a post with a non-existing id', () => {
     const nonExistingId = '9999';
-    const foundPost = postsService.find(nonExistingId);
+    foundPost = postsService.find(nonExistingId);
+
     expect(foundPost).toBeUndefined();
   });
 });
